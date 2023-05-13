@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     String uid = dataSnapshot.getKey();
                     if (!uid.equals(FirebaseAuth.getInstance().getUid())) {
                         UserModel userModel = dataSnapshot.child(uid).getValue(UserModel.class);
+
                     }
                 }
             }
