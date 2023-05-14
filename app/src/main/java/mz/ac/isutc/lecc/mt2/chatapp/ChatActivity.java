@@ -23,6 +23,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private ActivityChatBinding binding;
     private String recieverId;
+    private String username;
     private DatabaseReference databaseReferenceSender;
     private DatabaseReference databaseReferenceReciever;
     String senderRoom,recieverRoom;
@@ -35,6 +36,10 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         recieverId = getIntent().getStringExtra("id");
+
+        //set do username
+        username = getIntent().getStringExtra("username");
+        binding.usernameMenu.setText(username);
 
         senderRoom = FirebaseAuth.getInstance().getUid()+recieverId;
         recieverRoom = recieverId+FirebaseAuth.getInstance().getUid();
@@ -68,7 +73,16 @@ public class ChatActivity extends AppCompatActivity {
                 String message = binding.messageEd.getText().toString();
                 if (message.trim().length()>0){
                     sendMessage(message);
+                    binding.messageEd.setText("");
                 }
+
+            }
+        });
+
+        binding.arrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

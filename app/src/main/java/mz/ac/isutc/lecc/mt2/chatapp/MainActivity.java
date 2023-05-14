@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -56,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, AuthenticationActivity.class));
+                finish();
+            }
+        });
     }
 
     @Override
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.logout_btn){
             FirebaseAuth.getInstance().signOut();
@@ -74,5 +84,5 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
+    }*/
 }
