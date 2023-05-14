@@ -1,6 +1,7 @@
 package mz.ac.isutc.lecc.mt2.chatapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         UserModel userModel = userModelList.get(position);
-        holder.name.setText(userModel.getUserName());
-        holder.email.setText(userModel.getUserEmail());
+//        holder.name.setText(userModel.getUserName());
+        holder.name.setText("Nome");
+//        holder.email.setText(userModel.getUserEmail());
+        holder.email.setText("Email");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ChatActivity.class);
+//                intent.putExtra("id",userModel.getUserId());
+                intent.putExtra("id",5445);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
