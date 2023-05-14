@@ -7,7 +7,6 @@
     android:background="@color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".AuthenticationActivity">
 
     <ImageView
@@ -31,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/input_background"
-            android:hint="Nome"
+            android:hint="@string/input_nome"
             android:inputType="textCapWords"
             android:padding="15dp" />
 
@@ -41,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/input_background"
-            android:hint="Email"
+            android:hint="@string/input_email"
             android:inputType="textEmailAddress"
             android:padding="15dp" />
 
@@ -50,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_background"
-            android:hint="Password"
+            android:hint="@string/input_password"
             android:inputType="textPassword"
             android:padding="15dp" />
 
@@ -60,10 +59,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="10dp"
         android:weightSum="2">
 
         <Button
@@ -73,7 +70,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_background"
             android:paddingHorizontal="60dp"
-            android:text="SignUp"
+            android:text="@string/signup_button"
             android:textColor="@color/white" />
 
         <Button
@@ -83,7 +80,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_background"
             android:paddingHorizontal="60dp"
-            android:text="Login"
+            android:text="@string/login_button"
             android:textColor="@color/white" />
 
     </LinearLayout>
