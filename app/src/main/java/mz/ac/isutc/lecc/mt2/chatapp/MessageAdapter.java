@@ -66,7 +66,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         private LinearLayout main;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            msg = itemView.findViewById(R.id.messageEd);
+            msg = itemView.findViewById(R.id.message); //41.11 - antes era messageEd
             main = itemView.findViewById(R.id.mainMessageLayout);
         }
     }
