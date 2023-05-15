@@ -1,7 +1,6 @@
 package mz.ac.isutc.lecc.mt2.chatapp;
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,15 +46,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         MessageModel messageModel = messageModelList.get(position);
-        holder.msg.setText(messageModel.getMessage());
-        if(messageModel.getSenderId().equals(FirebaseAuth.getInstance().getUid())){
-            holder.main.setBackgroundColor(context.getResources().getColor(R.color.great_blue));
-            holder.msg.setTextColor(context.getResources().getColor(R.color.white));
-        }else{
-            holder.main.setBackgroundColor(context.getResources().getColor(R.color.great_grey));
-            holder.msg.setTextColor(context.getResources().getColor(R.color.black));
-        }
 
+        if(messageModel.getSenderId().equals(FirebaseAuth.getInstance().getUid())){
+            holder.main2.setVisibility(View.GONE);
+            holder.msg.setText(messageModel.getMessage());
+        }else{
+            holder.main.setVisibility(View.GONE);
+            holder.msg2.setText(messageModel.getMessage());
+        }
     }
 
     @Override
@@ -65,11 +63,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView msg;
-        private LinearLayout main;
+        private TextView msg2;
+
+        private  LinearLayout main;
+        private  LinearLayout main2;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            msg = itemView.findViewById(R.id.message); //41.11 - antes era messageEd
-            main = itemView.findViewById(R.id.mainMessageLayout);
+            msg = itemView.findViewById(R.id.message_sent); //41.11 - antes era messageEd
+
+            msg2 = itemView.findViewById(R.id.message_recieved); //41.11 - antes era messageEd
+
+            main = itemView.findViewById(R.id.mainMessage_sent_Layout);
+            main2 = itemView.findViewById(R.id.mainMessage_recieved_Layout);
         }
     }
 

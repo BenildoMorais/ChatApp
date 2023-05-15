@@ -39,6 +39,11 @@ public class AuthenticationActivity extends AppCompatActivity {
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
 
+                if(email.trim().equals("") || password.equals("")) {
+                    Toast.makeText(AuthenticationActivity.this, "Nao deixe nada em branco", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 login();
             }
         });
@@ -49,6 +54,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                 name = binding.name.getText().toString();
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
+
                 signUp();
             }
         });
@@ -72,7 +78,6 @@ public class AuthenticationActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         startActivity(new Intent(AuthenticationActivity.this, MainActivity.class));
-                        Toast.makeText(AuthenticationActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
