@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 import mz.ac.isutc.lecc.mt2.chatapp.databinding.ActivityChatBinding;
