@@ -6,6 +6,7 @@
 
 
     <LinearLayout
+        android:id="@+id/mainMessage_sent_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
@@ -13,7 +14,7 @@
         android:padding="10dp">
 
         <LinearLayout
-            android:id="@+id/mainMessage_sent_Layout"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/message_sent">
@@ -38,6 +39,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/mainMessage_recieved_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -53,7 +55,7 @@
             android:src="@drawable/person_icon" />
 
         <LinearLayout
-            android:id="@+id/mainMessage_recieved_Layout"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/message_recieved">

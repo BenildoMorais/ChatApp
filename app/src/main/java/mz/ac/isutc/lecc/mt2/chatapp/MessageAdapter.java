@@ -48,11 +48,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         MessageModel messageModel = messageModelList.get(position);
 
         if(messageModel.getSenderId().equals(FirebaseAuth.getInstance().getUid())){
+            holder.main2.setVisibility(View.GONE);
             holder.msg.setText(messageModel.getMessage());
         }else{
+            holder.main.setVisibility(View.GONE);
             holder.msg2.setText(messageModel.getMessage());
         }
-
     }
 
     @Override
@@ -64,12 +65,16 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         private TextView msg;
         private TextView msg2;
 
+        private  LinearLayout main;
+        private  LinearLayout main2;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             msg = itemView.findViewById(R.id.message_sent); //41.11 - antes era messageEd
 
             msg2 = itemView.findViewById(R.id.message_recieved); //41.11 - antes era messageEd
 
+            main = itemView.findViewById(R.id.mainMessage_sent_Layout);
+            main2 = itemView.findViewById(R.id.mainMessage_recieved_Layout);
         }
     }
 
