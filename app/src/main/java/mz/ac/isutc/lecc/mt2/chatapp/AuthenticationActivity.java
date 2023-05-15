@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -38,6 +39,11 @@ public class AuthenticationActivity extends AppCompatActivity {
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
 
+                if(email.trim().equals("") || password.equals("")) {
+                    Toast.makeText(AuthenticationActivity.this, "Nao deixe nada em branco", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 login();
             }
         });
@@ -48,6 +54,11 @@ public class AuthenticationActivity extends AppCompatActivity {
                 name = binding.name.getText().toString();
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
+
+                if(email.trim().equals("") || password.equals("") || name.trim().equals("")) {
+                    Toast.makeText(AuthenticationActivity.this, "Nao deixe nada em branco", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 signUp();
             }
