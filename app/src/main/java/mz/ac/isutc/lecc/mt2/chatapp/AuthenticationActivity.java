@@ -55,6 +55,11 @@ public class AuthenticationActivity extends AppCompatActivity {
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
 
+                if(email.trim().equals("") || password.equals("") || name.trim().equals("")) {
+                    Toast.makeText(AuthenticationActivity.this, "Nao deixe nada em branco", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 signUp();
             }
         });
@@ -96,7 +101,6 @@ public class AuthenticationActivity extends AppCompatActivity {
                         UserModel userModel = new UserModel(FirebaseAuth.getInstance().getUid(),name,password,email);
                         databaseReference.child(FirebaseAuth.getInstance().getUid()).setValue(userModel);
                         startActivity(new Intent(AuthenticationActivity.this, MainActivity.class));
-                        Toast.makeText(AuthenticationActivity.this, "Regitrado com Sucesso", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
