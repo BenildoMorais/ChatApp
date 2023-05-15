@@ -54,6 +54,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
             public void onClick(View view) {
                 Intent intent = new Intent(context, ChatActivity.class);
                 intent.putExtra("id",userModel.getUserId());
+                intent.putExtra("username",userModel.getUserName());
 //              intent.putExtra("id",5445);
                 context.startActivity(intent);
             }

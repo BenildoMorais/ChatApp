@@ -1,6 +1,7 @@
 package mz.ac.isutc.lecc.mt2.chatapp;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +49,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         MessageModel messageModel = messageModelList.get(position);
         holder.msg.setText(messageModel.getMessage());
         if(messageModel.getSenderId().equals(FirebaseAuth.getInstance().getUid())){
-            holder.main.setBackgroundColor(context.getResources().getColor(R.color.teal_700));
+            holder.main.setBackgroundColor(context.getResources().getColor(R.color.great_blue));
             holder.msg.setTextColor(context.getResources().getColor(R.color.white));
         }else{
-            holder.main.setBackgroundColor(context.getResources().getColor(R.color.black));
-            holder.msg.setTextColor(context.getResources().getColor(R.color.white));
+            holder.main.setBackgroundColor(context.getResources().getColor(R.color.great_grey));
+            holder.msg.setTextColor(context.getResources().getColor(R.color.black));
         }
+
     }
 
     @Override
