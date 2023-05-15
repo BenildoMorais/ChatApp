@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="15dp"
-                android:text="Mensagem"
+                android:hint="Mensagem"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="15dp"
-                android:text="Mensagem"
+                android:hint="Mensagem"
                 android:textColor="@color/black" />
 
         </LinearLayout>
