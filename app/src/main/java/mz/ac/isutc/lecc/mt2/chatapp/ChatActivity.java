@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.UUID;
 
 import mz.ac.isutc.lecc.mt2.chatapp.databinding.ActivityChatBinding;
@@ -52,7 +53,7 @@ public class ChatActivity extends AppCompatActivity {
         databaseReferenceSender = FirebaseDatabase.getInstance().getReference("chats").child(senderRoom);
         databaseReferenceReciever = FirebaseDatabase.getInstance().getReference("chats").child(recieverRoom);
 
-        databaseReferenceSender.addValueEventListener(new ValueEventListener() {
+        databaseReferenceSender.orderByChild("created").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messageAdapter.clear();
@@ -91,7 +92,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void sendMessage(String message) {
         String messageId = UUID.randomUUID().toString();
-        MessageModel messageModel = new MessageModel(messageId, FirebaseAuth.getInstance().getUid(),message);
+        MessageModel messageModel = new MessageModel(messageId, FirebaseAuth.getInstance().getUid(),message, new Date());
 
         messageAdapter.add(messageModel);
 
