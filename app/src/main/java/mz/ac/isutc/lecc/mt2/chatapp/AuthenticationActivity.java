@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -48,7 +49,6 @@ public class AuthenticationActivity extends AppCompatActivity {
                 name = binding.name.getText().toString();
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
-
                 signUp();
             }
         });
@@ -72,6 +72,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         startActivity(new Intent(AuthenticationActivity.this, MainActivity.class));
+                        Toast.makeText(AuthenticationActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
@@ -90,6 +91,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                         UserModel userModel = new UserModel(FirebaseAuth.getInstance().getUid(),name,password,email);
                         databaseReference.child(FirebaseAuth.getInstance().getUid()).setValue(userModel);
                         startActivity(new Intent(AuthenticationActivity.this, MainActivity.class));
+                        Toast.makeText(AuthenticationActivity.this, "Regitrado com Sucesso", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
